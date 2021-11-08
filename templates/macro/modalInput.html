@@ -1,0 +1,120 @@
+<!-- 메크로 관리 -->
+{% macro modal(id, title, hidden="") %}
+<div class="modal fade" id="{{id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{caller()}}
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="MDhidden" value="{{hidden}}">
+          <button type="button" class="btn btn-secondary" id="MDbuttonUpdate">수정</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro textbox(id, title, placeholder, value, max) %}
+<form class = "form-group form-group-default" >
+    <label style = "font-size: 10.5px;">{{title}}</label>
+    <input style = "font-size: 12px;" id="{{id}}" name="{{id}}" type="text" class="form-control" placeholder="{{placeholder}}" maxlength="{{max}}" , value="{{value}}">
+
+</form>
+{% endmacro %}
+{% macro label(id, title, num) %}
+<form class = "form-group form-group-default" >
+    <label style = "font-size: 17px;">{{title}} : </label>
+    <b style = "font-size: 17px;" id="{{id}}">{{num}}회</b>
+</form>
+{% endmacro %}
+                                
+
+{% macro numspin(id,title,min,max,placeholder) %}
+<form class = "form-group form-group-default" >
+  <label style = "font-size: 10.5px;">{{title}}</label>
+<input id="{{id}}" name="{{id}}" type="number" class="form-control" min="{{min}}" max="{{max}}" placeholder="{{placeholder}}">
+</form>
+{% endmacro %}
+
+{% macro select(id, title, rows) %}
+<form class = "form-group form-group-default" >
+  <label style = "font-size: 10.5px;">{{title}}</label>
+  <select class="form-control form-control-sm" id="{{id}}" name="{{id}}" selected="selected">
+   <option>
+    선택없음
+    </option>
+    {% for i in rows %}
+    <option>
+      {{i}}
+    </option>
+    {% endfor %}
+  </select>
+</form>
+{% endmacro %}
+
+{% macro radio() %}
+<form class = "form-group form-group-default" id="MDgender">
+  <label style = "font-size: 10.5px;">성별</label>
+  <div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="male" value="남">
+    <label class="form-check-label" for="male" style = "font-size: 12px;">남</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="female" value="여">
+    <label class="form-check-label" for="female" style = "font-size: 12px;">여</label>
+  </div>
+</div>
+</form>
+{% endmacro %}
+
+{% macro calendar(title) %}
+<form class = "form-group form-group-default" >
+  <label style = "font-size: 10.5px;">{{title}}</label>
+  <input id="MDcalendar" name="MDcalendar" type="date" class="form-control", value="">
+</form>
+{% endmacro %}
+
+{% macro hidden(id, value) %}
+<input type="hidden" id={{id}} name={{id}} value={{value}}>
+{% endmacro %}
+
+{% macro modalL(id, title, hidden="") %}
+<div class="modal fade" id="{{id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{title}}</h5>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+          {{caller()}}
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer">
+        <input type="hidden" id="MDhidden" value="{{hidden}}">
+        <button type="button" id="addDestinationBtn" class="btn btn-info waves-effect waves-light">등록</button>
+        <a role="button" class="btn btn-outline-info waves-effect" data-dismiss="modal">닫기</a>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+{% endmacro %}
