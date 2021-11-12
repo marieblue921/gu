@@ -1,10 +1,12 @@
+import pymysql
+
 class Database():
     def __init__(self):
         self.db = pymysql.connect(
-                host = 'localhost',
-                user = 'root',
-                password = 'Inno160401**',
-                db = 'youth1004',
+                host = 'ec2-13-124-84-236.ap-northeast-2.compute.amazonaws.com',
+                user = 'developer',
+                password = 'pirates1!',
+                db = 'gu',
                 charset='utf8',
                 autocommit = True
                 )
@@ -26,3 +28,5 @@ class Database():
     def commit():
         self.db.commit()
 
+
+dbc = Database()

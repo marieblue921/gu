@@ -1,10 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session, Blueprint
+from module import db
 
 web_bp = Blueprint('web_bp', __name__)
-
-
-
-
 
 
 @web_bp.route('/')
@@ -20,7 +17,7 @@ def login():
         user_id = request.form['id']
         user_pwd = request.form['pwd']
         print(user_id)
-
+    
         if user_id=="admin" and user_pwd=="0000":
             session['logged_in'] = True
             return redirect(url_for("web_bp.main") )
@@ -48,7 +45,10 @@ def login():
 def main():
     if not session.get('logged_in'):
         return redirect(url_for('web_bp.login'))
-
+    dbc = db.Database()
+    sql = 'select * from curriculum'
+    row = dbc.executeAll(sql,())
+    print(row)
     return render_template('main/main.html', title = "A유치원", usersrl=session.get('logged_user_srl'), schoolsrl=session.get('logged_school_srl'))
 
 @web_bp.route('/logout', methods = ['get'])
