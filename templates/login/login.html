@@ -12,17 +12,18 @@
                         <ul class="specification-list" style="list-style:none; padding-left: 0px;">
                             <li>
                                 <label for="id">ID</label>
-                                <input type="text" class="form-control" name="id" id="id" placeholder="Enter ID">
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter ID">
                             </li>
                             <li style="padding-top: 10px;">
                                 <label for="pwd">PW</label>
-                                <input type="password" autocomplete="new-password" class="form-control" name="pwd" id="pwd" placeholder="Enter Password">
+                                <input type="password" autocomplete="new-password" class="form-control" name="password" id="password" placeholder="Enter Password">
+                                <div class="msg">{{ msg }}</div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class = "card-footer text-center mt-4" style="margin-top: 10px;">
-                    <button class="btn btn-cyan waves-effect waves-light">Login
+                    <button class="btn btn-cyan waves-effect waves-light">
                         <i class="fas fa-sign-in-alt ml-1"></i>
                     </button>
                 </div>        

@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block main %}
+<!-- <div class="card-header py-3">
+ <h6 class="m-0 font-weight-bold text-primary"> 님의 2022년 1학기 수업 시간표</h6>-->
+    <form method="POST">
+      <div class="col-sm-12"><table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+        <thead>
+            <tr role="row" style="text-align: center;">
+              <th class="sorting sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 25px;" aria-sort="descending"></th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 40px;">월</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 40px;">화</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 40px;">수</th>
+              <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 40px;">목</th
+                ><th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 40px;">금</th></tr>
+        </thead>
+        <tfoot>
+      
+        </tfoot>
+        <tbody>
+          <tr class="odd">
+            <td class="sorting_1" style="text-align: center;" >1교시</td>
+            <td bgcolor= "{{array[0][0]}}"> {{array[0][1]}} </td>
+            <td bgcolor= "{{array[1][0]}}"> {{array[1][1]}} </td>
+            <td bgcolor= "{{array[2][0]}}"> {{array[2][1]}} </td>
+            <td bgcolor= "{{array[3][0]}}"> {{array[3][1]}} </td>
+            <td bgcolor= "{{array[4][0]}}"> {{array[4][1]}} </td>
+        </tr><tr class="even">
+            <td class="sorting_1" style="text-align: center;">2교시</td>
+            <td bgcolor= "{{array[0][0]}}"> {{array[0][1]}} </td>
+            <td bgcolor= "{{array[1][0]}}"> {{array[1][1]}} </td>
+            <td bgcolor= "{{array[2][0]}}"> {{array[2][1]}} </td>
+            <td bgcolor= "{{array[3][0]}}"> {{array[3][1]}} </td>
+            <td bgcolor= "{{array[4][0]}}"> {{array[4][1]}} </td>
+        </tr><tr class="odd">
+            <td class="sorting_1" style="text-align: center;">3교시</td>
+            <td bgcolor= "{{array[5][0]}}"> {{array[5][1]}} </td>
+            <td bgcolor= "{{array[6][0]}}"> {{array[6][1]}} </td>
+            <td bgcolor= "{{array[7][0]}}"> {{array[7][1]}} </td>
+            <td bgcolor= "{{array[8][0]}}"> {{array[8][1]}} </td>
+            <td bgcolor= "{{array[9][0]}}"> {{array[9][1]}} </td>
+        </tr><tr class="even">
+            <td class="sorting_1" style="text-align: center;">4교시</td>
+            <td bgcolor= "{{array[5][0]}}"> {{array[5][1]}} </td>
+            <td bgcolor= "{{array[6][0]}}"> {{array[6][1]}} </td>
+            <td bgcolor= "{{array[7][0]}}"> {{array[7][1]}} </td>
+            <td bgcolor= "{{array[8][0]}}"> {{array[8][1]}} </td>
+            <td bgcolor= "{{array[9][0]}}"> {{array[9][1]}} </td>
+        </tr><tr class="odd">
+            <td class="sorting_1" style="text-align: center;">5교시</td>
+            <td bgcolor= "{{array[10][0]}}"> {{array[10][1]}} </td>
+            <td bgcolor= "{{array[11][0]}}"> {{array[11][1]}} </td>
+            <td bgcolor= "{{array[12][0]}}"> {{array[12][1]}} </td>
+            <td bgcolor= "{{array[13][0]}}"> {{array[13][1]}} </td>
+            <td bgcolor= "{{array[14][0]}}"> {{array[14][1]}} </td>
+        </tr><tr class="even">
+            <td class="sorting_1" style="text-align: center;">6교시</td>
+            <td bgcolor= "{{array[10][0]}}"> {{array[10][1]}} </td>
+            <td bgcolor= "{{array[11][0]}}"> {{array[11][1]}} </td>
+            <td bgcolor= "{{array[12][0]}}"> {{array[12][1]}} </td>
+            <td bgcolor= "{{array[13][0]}}"> {{array[13][1]}} </td>
+            <td bgcolor= "{{array[14][0]}}"> {{array[14][1]}} </td>
+        </tr><tr class="odd">
+            <td class="sorting_1" style="text-align: center;">7교시</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr><tr class="even">
+            <td class="sorting_1" style="text-align: center;">8교시</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr></tbody>
+</table></div>
+{% endblock %}
+
+
+
+
+

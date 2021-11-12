@@ -1,9 +1,7 @@
 ##구성을 main 안에 넣겠다는건지 Page 별로 나누겠다는건지 확신이 없기에 일단 따로 구현
 ##이런식으로 구현 하면 블루포인터를 계속 생성해야 하는 문제점이 있음. web.main.__init__.py에 initialize 기능과 login, root 등 구분 하여 리펙토링 필요
-from flask import Flask, request, render_template, redirect, url_for, session, Blueprint
+from flask import request, render_template, redirect, url_for, session, Blueprint
 from module.registration.DbUtil import *
-
-from flask import jsonify
 #from flask_restful import Resourece
 
 ##리펙토링 후 import로 변경하면 될것으로 생각됨

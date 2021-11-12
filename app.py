@@ -1,16 +1,18 @@
 from flask import Flask
-from module.web.main import web_bp
-##init을 만들고 하나만 init 하도록
-from module.registration.CourseRegistration import web_bpr
+from web.home.home import home_bp
+from web.login.login import managing_bp
+from web.timeTable.timeTable import table_bp
+from web.registration.registration import reg_bp
  
 app = Flask(__name__)
 
-app.register_blueprint(web_bp, url_prefix='/')
-##init 을 만들고 이거 빼야함
-app.register_blueprint(web_bpr, url_prefix='/')
+app.register_blueprint(home_bp, url_prefix='/')
+app.register_blueprint(managing_bp, url_prefix='/')
+app.register_blueprint(table_bp, url_prefix='/')
+app.register_blueprint(reg_bp, url_prefix='/')
 app.config['SECRET_KEY'] = 'abcdefgh'
 
 
 if __name__=='__main__':
     app.debug=True
-    app.run()   
+    app.run(host='0.0.0.0')   
