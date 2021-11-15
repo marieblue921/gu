@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, redirect, Blueprint, url_for, session, jsonify
-from module import db
-from web.timeTable import courselist
+from module.timeTable import courselist
 table_bp = Blueprint('table_bp',__name__)
 null='Null'
 color_arr = [

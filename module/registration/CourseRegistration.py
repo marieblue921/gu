@@ -11,17 +11,7 @@ web_bpr = Blueprint('web_bpr', __name__)
 ##파라미터 의미
 ##함수 동작정의
 ##구현한사람
-@web_bpr.route('/registration', methods = ['post','get'])
-def registration():
-    if not session.get('logged_in'):
-        return redirect(url_for('web_bp.login'))
 
-    curriculumList=GetCurriculumList()
-
-    #세션 처리 후 변경 해야함
-    studentCode=2014
-    
-    return render_template('registration/registration.html', title ="수강 신청", curriculumList =curriculumList , studentCode=studentCode)
     ##POST의 동작과 GET 동작 나누어 구현필요
 
     ##GET은 페이지 표시
