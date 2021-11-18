@@ -7,7 +7,7 @@ def root():
     if not session.get('logged_in'):
         return redirect(url_for('managing_bp.login'))
     else:
-        return render_template('main/main.html', usersrl=session.get('logged_user_srl'), schoolsrl=session.get('logged_school_srl'))
+        return render_template('home/home.html', usersrl=session.get('logged_user_srl'), schoolsrl=session.get('logged_school_srl'))
 
 
 @home_bp.route('/home', methods = ['get'])
