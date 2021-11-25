@@ -34,6 +34,7 @@ pipeline {
                         docker tag ${env.JOB_NAME.toLowerCase()}:latest 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker push 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
+                        docker rmi cicd_test
                         """
                          env.dockerBuildResult=true
                     }catch(error){
@@ -59,7 +60,7 @@ pipeline {
                         git branch -M master
                         sed -i 's/gu-dev:.*\$/gu-dev:${env.BUILD_NUMBER}/g' deployment.yaml
                         git add deployment.yaml
-                        git commit -m '[UPDATE] gu-dev image versionig'
+                        git commit -m '[UPDATE] gu-dev image versionig!'
                         git remote set-url origin git@github.com:marieblue921/Infra.git
                         git push -u origin master
                         """
