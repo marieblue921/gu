@@ -2,15 +2,6 @@
 
 from module.db import dbc
 
-    #구성을 어떻게 할것인지에 따라 달라진다.
-    ##이거 왜 필요했지 ㅋㅋㅋㅋ?
-    ###아 이거 사용자 세션 정보에  학번이 없으면 사용하려고 했다!
-def GetStudentNumber():
-    studentNumber=2014
-    return studentNumber
-
-
-
 #학번과 원하는 수강 과목 코드를 비교하여 해당 시간의 중복이 있는지 혹은 중복된 과목인지
 def CheckOverlap( studentCode, startTime):
 
@@ -83,9 +74,11 @@ def GetSubjectList():
 def Registration(curriculumCode,studentCode,startTime):
         
     if False==CheckFull(curriculumCode):
-       return False
+        print("CheckFull Error")
+        return False
     if False==CheckOverlap(studentCode,startTime):
-       return False
+        print("CheckOverLap Error")
+        return False
 
     try:
         ##트렌잭션 관리해야함 Update 랑 Insert 동시에 해야함

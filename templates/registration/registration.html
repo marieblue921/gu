@@ -48,7 +48,7 @@
                                 <td>
                                     <div class="form-button-action">
                                        
-                                        <button type="button" class="btn btn-link btn-primary btn-sm" onclick='AddCurriculum("{{i.curriculum_code}}","{{studentCode}}","{{i.lecture_start_time}}")'>
+                                        <button type="button" class="btn btn-link btn-primary btn-sm" onclick='AddCurriculum("{{i.curriculum_code}}","{{i.lecture_start_time}}")'>
                                             <i class="fa fa-edit"></i>
                                         </button>
                                     </div>
@@ -85,14 +85,13 @@
 {% block script%}
 <script type="text/javascript" language="javascript">
 
-function AddCurriculum(curriculumCode,studentCode,startTime){
+function AddCurriculum(curriculumCode,startTime){
     if (confirm("신청?") == true){   
         $.ajax({ 
             type : "POST",
             url : "/registration/api",
             data : {
                 curriculumCode:curriculumCode,
-                studentCode:studentCode,
                 startTime
             },
             dataType:'Json',

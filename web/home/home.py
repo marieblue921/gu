@@ -18,5 +18,5 @@ def home():
         return redirect(url_for('sess_bp.login'))
     sql = 'select * from curriculum'
     row = dbc.executeAll(sql,())
-    return render_template('home/home.html', title = "A유치원", usersrl=session.get('logged_user_srl'), schoolsrl=session.get('logged_school_srl'))
+    return render_template('home/home.html', title = "Goorm University 수강신청", usersrl=session.get('logged_user_srl'), schoolsrl=session.get('logged_school_srl'))
 
