@@ -34,6 +34,7 @@ pipeline {
                         docker tag ${env.JOB_NAME.toLowerCase()}:latest 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker push 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
+                        docker rmi cicd_test
                         """
                          env.dockerBuildResult=true
                     }catch(error){
