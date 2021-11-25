@@ -14,7 +14,7 @@ pipeline {
                          currentBuild.result='FAILURE'
                     }
                 }
-                
+                 
             }
         }
         stage('Docker Build & Push'){
