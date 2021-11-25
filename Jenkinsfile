@@ -59,7 +59,7 @@ pipeline {
                         git branch -M master
                         sed -i 's/gu-dev:.*\$/gu-dev:${env.BUILD_NUMBER}/g' deployment.yaml
                         git add deployment.yaml
-                        git commit -m '[UPDATE] gu-dev image versionig'
+                        git commit -m '[UPDATE] gu-dev image ver sionig'
                         git remote set-url origin git@github.com:marieblue921/Infra.git
                         git push -u origin master
                         """
