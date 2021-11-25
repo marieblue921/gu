@@ -3,7 +3,7 @@ pipeline {
 
     stages { 
         stage('Git Clone') {
-            steps {
+            steps {  
                 script {
                     try{
                         git url: "https://github.com/marieblue921/gu.git", branch: "master" 
