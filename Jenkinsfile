@@ -44,7 +44,7 @@ pipeline {
         stage(' Build Image Push'){
             when{
                 expression {
-                    return env.cloneResult ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
+                    return env.dockerBuildResult ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
                 }
             }
             steps {
@@ -58,10 +58,10 @@ pipeline {
                         docker rmi 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi cicd_test
                         """
-                         env.dockerBuildResult=true
+                         env.dockerBuildResult2=true
                     }catch(error){
                         print(error)
-                         env.dockerBuildResult=false
+                         env.dockerBuildResult2=false
                          currentBuild.result='FAILURE'
                     }
                 }
@@ -70,7 +70,7 @@ pipeline {
         stage('K8S Manifest Update') {
             when{
                 expression {
-                return env.dockerBuildResult ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
+                return env.dockerBuildResult2 ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
                 }
             }
             steps {
