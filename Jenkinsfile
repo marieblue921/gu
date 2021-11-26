@@ -52,7 +52,6 @@ pipeline {
                     try{
                     
                         sh"""
-                        cp manifest/Dockerfile ./
                         aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev
                         docker push 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
