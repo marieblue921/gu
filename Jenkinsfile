@@ -17,7 +17,31 @@ pipeline {
                     
             }
         }
-        stage('Docker Build & Push'){
+        stage('Docker Build'){
+            when{
+                expression {
+                    return env.cloneResult ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
+                }
+            }
+            steps {
+                script{
+                    try{
+                    
+                        sh"""
+                        cp manifest/Dockerfile ./
+                        docker build -t ${env.JOB_NAME.toLowerCase()} .
+                        docker tag ${env.JOB_NAME.toLowerCase()}:latest 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
+                        """
+                         env.dockerBuildResult=true
+                    }catch(error){
+                        print(error)
+                         env.dockerBuildResult=false
+                         currentBuild.result='FAILURE'
+                    }
+                }
+            }
+        }
+        stage(' Build Image Push'){
             when{
                 expression {
                     return env.cloneResult ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/
@@ -30,8 +54,6 @@ pipeline {
                         sh"""
                         cp manifest/Dockerfile ./
                         aws ecr get-login-password --region ap-northeast-2 | docker login --username AWS --password-stdin 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev
-                        docker build -t ${env.JOB_NAME.toLowerCase()} .
-                        docker tag ${env.JOB_NAME.toLowerCase()}:latest 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker push 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi 299522382061.dkr.ecr.ap-northeast-2.amazonaws.com/gu-dev:${env.BUILD_NUMBER}
                         docker rmi cicd_test
